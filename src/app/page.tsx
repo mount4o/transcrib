@@ -1,8 +1,6 @@
 'use client';
 
-import Image from "next/image";
 import FileUpload from "../components/FileUpload";
-import Button from "../components/Button"
 import TranscribedText from "../components/TranscribedText"
 import TranslatedText from "../components/TranslatedText"
 import FlexContainer from "../components/FlexContainer"
@@ -13,7 +11,7 @@ export default function Home() {
   // let transcribedText = "opaaa";
   const [transcribedText, setTranscribedText] = useState("");
 
-  function onFileUploadSuccess(resultData) {
+  function onFileUploadSuccess(resultData : any) {
     console.log("Changing transcribed text with:");
     console.log(resultData);
     setTranscribedText(resultData);
