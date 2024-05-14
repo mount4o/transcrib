@@ -13,7 +13,7 @@ export default function Home() {
   // let transcribedText = "opaaa";
   const [transcribedText, setTranscribedText] = useState("");
 
-  function onFileUploadSuccess(resultData: String) {
+  function onFileUploadSuccess(resultData) {
     console.log("Changing transcribed text with:");
     console.log(resultData);
     setTranscribedText(resultData);

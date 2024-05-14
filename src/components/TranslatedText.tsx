@@ -13,8 +13,8 @@ export default function Translator({ textForTranslation }) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(process.env.BACKEND_HOST);
-        const url = process.env.BACKEND_HOST + '/translateText';
+        console.log(process.env.NEXT_PUBLIC_BACKEND_HOST);
+        const url = process.env.NEXT_PUBLIC_BACKEND_HOST + '/translateText';
         const formData = new FormData();
         formData.append('textForTranslation', textForTranslation);
         formData.append('destLanguage', destLanguage);

@@ -14,7 +14,9 @@ export default function FileUpload({ onResponse }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const url = process.env.BACKEND_HOST + '/transcribeFile';
+    console.log("Backend host:");
+    console.log(process.env.NEXT_PUBLIC_BACKEND_HOST);
+    const url = process.env.NEXT_PUBLIC_BACKEND_HOST + '/transcribeFile';
     const formData = new FormData();
     formData.append('file', file);
     formData.append('fileName', file.name);
