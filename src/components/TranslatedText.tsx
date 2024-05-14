@@ -3,15 +3,15 @@ import axios from 'axios';
 import Button from "../components/Button"
 import FlexContainer from "../components/FlexContainer"
 
-export default function Translator({ textForTranslation }) {
+export default function Translator({ textForTranslation }: any) {
     const [translatedTextContent, setTranslatedTextContent] = useState();
-    const [destLanguage, setDestLanguage] = useState();
+    const [destLanguage, setDestLanguage] = useState("");
 
-    function handleDestLangChange(event) {
+    function handleDestLangChange(event: any) {
         setDestLanguage(event.target.value);
     }
 
-    function handleSubmit(event) {
+    function handleSubmit(event: any) {
         event.preventDefault();
         console.log(process.env.NEXT_PUBLIC_BACKEND_HOST);
         const url = process.env.NEXT_PUBLIC_BACKEND_HOST + '/translateText';
@@ -43,7 +43,7 @@ export default function Translator({ textForTranslation }) {
                 console.log(error.config);
             })
             .then((response) => {
-                if (response.data.translatedText) {
+                if (response && response.data && response.data.translatedText) {
                     setTranslatedTextContent(response.data.translatedText);
                 }
             });

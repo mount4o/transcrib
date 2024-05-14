@@ -7,8 +7,6 @@ import FlexContainer from "../components/FlexContainer"
 import { useState } from "react";
 
 export default function Home() {
-  
-  // let transcribedText = "opaaa";
   const [transcribedText, setTranscribedText] = useState("");
 
   function onFileUploadSuccess(resultData : any) {

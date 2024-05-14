@@ -5,14 +5,14 @@ import axios from 'axios';
 import Button from "../components/Button"
 import FlexContainer from "../components/FlexContainer"
 
-export default function FileUpload({ onResponse }) {
-  const [file, setFile] = useState()
+export default function FileUpload({ onResponse }: any) {
+  const [file, setFile] = useState(new File([""], ""));
 
-  function handleChange(event) {
+  function handleChange(event: any) {
     setFile(event.target.files[0]);
   }
 
-  function handleSubmit(event) {
+  function handleSubmit(event: any) {
     event.preventDefault();
     console.log("Backend host:");
     console.log(process.env.NEXT_PUBLIC_BACKEND_HOST);
@@ -45,7 +45,7 @@ export default function FileUpload({ onResponse }) {
             console.log(error.config);
       })
       .then((response) => {
-        if (response.data.transcribedText) {
+        if (response && response.data && response.data.transcribedText) {
           onResponse(response.data.transcribedText);
         }
     });
