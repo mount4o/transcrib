@@ -47,7 +47,6 @@ export default function Translator({ textForTranslation }: any) {
                     setTranslatedTextContent(response.data.translatedText);
                 }
             });
-
     }
 
     return (
