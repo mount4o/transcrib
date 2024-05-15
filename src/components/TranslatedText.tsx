@@ -44,6 +44,7 @@ export default function Translator({ textForTranslation }: any) {
             })
             .then((response) => {
                 if (response && response.data && response.data.translatedText) {
+                    console.log(response.data.translatedText);
                     setTranslatedTextContent(response.data.translatedText);
                 }
             });
@@ -51,11 +52,15 @@ export default function Translator({ textForTranslation }: any) {
 
     return (
         <FlexContainer>
-            {translatedTextContent ? <p>Translated text: </p> : null}
-            {translatedTextContent ? <p>{translatedTextContent}</p> : null}
-            <form onSubmit={handleSubmit} className="flex flex-col items-start">
-            <select value={destLanguage} onChange={handleDestLangChange} data-placeholder="Choose a Language...">
-                <option value="AF">Afrikaans</option>
+            {translatedTextContent ? (
+                <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Translation</label>
+            ) : null}
+            {translatedTextContent ? (
+                <textarea id="message" rows={10} cols={80} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={translatedTextContent} readOnly={true}></textarea>
+            ) : null}
+            <form onSubmit={handleSubmit} className="flex flex-col items-center max-w-sm mx-auto gap-2">
+            <select id="languages" value={destLanguage} onChange={handleDestLangChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="EN">English</option>
                 <option value="SQ">Albanian</option>
                 <option value="AR">Arabic</option>
                 <option value="HY">Armenian</option>
@@ -69,7 +74,6 @@ export default function Translator({ textForTranslation }: any) {
                 <option value="CS">Czech</option>
                 <option value="DA">Danish</option>
                 <option value="NL">Dutch</option>
-                <option value="EN">English</option>
                 <option value="ET">Estonian</option>
                 <option value="FJ">Fiji</option>
                 <option value="FI">Finnish</option>

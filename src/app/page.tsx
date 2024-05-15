@@ -16,10 +16,10 @@ export default function Home() {
   }
 
   return (
-    <FlexContainer>
-      <FileUpload onResponse={onFileUploadSuccess} />
-        <TranscribedText textContent={transcribedText} />
-        <TranslatedText textForTranslation={transcribedText} />
-    </FlexContainer>
+      <div className="h-screen flex flex-col items-center justify-center gap-2">
+        {!transcribedText && <FileUpload onResponse={onFileUploadSuccess} /> }
+        {transcribedText && <TranscribedText textContent={transcribedText} />}
+        {transcribedText && <TranslatedText textForTranslation={transcribedText} />}
+      </div>
   );
 }
