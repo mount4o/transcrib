@@ -82,13 +82,13 @@ export default function FileUpload({ onResponse }: any) {
                     <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">{file.name}</span></p>
                   )}
                   {!file.name && (
-                    <p className="text-xs text-gray-500 dark:text-gray-400">MP3 only (max 8MB)</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">MP3 only (preferably bellow 8MB)</p>
                   )}
               </div>
               <input onChange={handleChange} id="dropzone-file" type="file" className="hidden" />
           </label>
         </div>
-      {isTranscribing ? (<Spinner />) : (<Button inputType={"submit"} text={"Transcribe file"} />)}
+      {isTranscribing ? (<div><p>This might take a some time, be patient...</p><Spinner /></div>) : (<Button inputType={"submit"} text={"Transcribe file"} />)}
       </form>
   )
 }
