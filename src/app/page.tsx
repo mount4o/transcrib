@@ -3,12 +3,18 @@
 import FileUpload from "../components/FileUpload";
 import TranscribedText from "../components/TranscribedText"
 import TranslatedText from "../components/TranslatedText"
-import FlexContainer from "../components/FlexContainer"
 import Head from 'next/head'
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Hotjar from '@hotjar/browser';
 
 export default function Home() {
   const [transcribedText, setTranscribedText] = useState("");
+
+  useEffect(() => {
+    const siteId = 4985123;
+    const hotjarVersion = 6;
+    Hotjar.init(siteId, hotjarVersion);
+  }, []);
 
   function onFileUploadSuccess(resultData : any) {
     console.log("Changing transcribed text with:");
