@@ -88,7 +88,7 @@ export default function FileUpload({ onResponse }: any) {
               <input onChange={handleChange} id="dropzone-file" type="file" className="hidden" />
           </label>
         </div>
-      {isTranscribing ? (<div><p>This might take a some time, be patient...</p><Spinner /></div>) : (<Button inputType={"submit"} text={"Transcribe file"} />)}
+      {isTranscribing ? (<div><p>This might take some time...</p><Spinner /></div>) : (<Button inputType={"submit"} text={"Transcribe file"} />)}
       </form>
   )
 }
