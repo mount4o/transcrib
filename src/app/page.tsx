@@ -6,6 +6,8 @@ import TranslatedText from "../components/TranslatedText"
 import Head from 'next/head'
 import { useState, useEffect } from "react";
 import Hotjar from '@hotjar/browser';
+import TagManager from "react-gtm-module";
+
 
 export default function Home() {
   const [transcribedText, setTranscribedText] = useState("");
@@ -14,6 +16,9 @@ export default function Home() {
     const siteId = 4985123;
     const hotjarVersion = 6;
     Hotjar.init(siteId, hotjarVersion);
+
+    const gtmId = "AW-16570343427";
+    TagManager.initialize({ gtmId });
   }, []);
 
   function onFileUploadSuccess(resultData : any) {
